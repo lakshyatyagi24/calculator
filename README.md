@@ -1,9 +1,6 @@
 # Basic Calculator
 
-[![Visits](https://badgen.net/github/visits/lakshyatyagi24/calculator)](https://github.com/lakshyatyagi24/calculator)
-[![Clones](https://badgen.net/github/clones/lakshyatyagi24/calculator)](https://github.com/lakshyatyagi24/calculator)
 [![Forks](https://badgen.net/github/forks/lakshyatyagi24/calculator)](https://github.com/lakshyatyagi24/calculator)
-[![Pull Requests](https://badgen.net/github/prs/lakshyatyagi24/calculator)](https://github.com/lakshyatyagi24/calculator)
 [![Open Issues](https://badgen.net/github/open-issues/lakshyatyagi24/calculator)](https://github.com/lakshyatyagi24/calculator)
 
 Basic Calculator is a simple calculator app built with Flutter. It allows you to perform basic arithmetic operations such as addition, subtraction, multiplication, and division. The app features a clean and user-friendly interface with a classic theme.
