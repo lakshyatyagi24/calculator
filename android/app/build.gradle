@@ -56,9 +56,9 @@ android {
     signingConfigs {
         release {
             storeFile file('C:/Projects/calculator/android/basic-calculator.jks')
-            storePassword 'LakshyaTyagi@23'
+            storePassword '##########'
             keyAlias 'basic-calculator'
-            keyPassword 'LakshyaTyagi@23'
+            keyPassword '##########'
         }
     }
     buildTypes {
