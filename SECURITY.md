@@ -9,7 +9,7 @@
 
 ## Reporting a Vulnerability
 
-If you discover any security vulnerabilities in the Basic Calculator app, please report them to our security team by emailing security@basiccalculator.com. We take security issues seriously and will respond to verified reports promptly.
+If you discover any security vulnerabilities in the Basic Calculator app, please report them to our security team by emailing programwarehouse@gmail.com. We take security issues seriously and will respond to verified reports promptly.
 
 When reporting a vulnerability, please include the following details:
 
