@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "flutter"
+    directory: "/" # Location of your pubspec.yaml file
+    schedule:
+      interval: "weekly"
