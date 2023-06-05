@@ -1,5 +1,6 @@
 # Basic Calculator
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7c47e0368f5945cebcff94212b19996c)](https://app.codacy.com/gh/lakshyatyagi24/calculator?utm_source=github.com&utm_medium=referral&utm_content=lakshyatyagi24/calculator&utm_campaign=Badge_Grade)
 [![Forks](https://badgen.net/github/forks/lakshyatyagi24/calculator)](https://github.com/lakshyatyagi24/calculator)
 [![Open Issues](https://badgen.net/github/open-issues/lakshyatyagi24/calculator)](https://github.com/lakshyatyagi24/calculator)
 
