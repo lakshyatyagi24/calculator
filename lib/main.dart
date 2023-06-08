@@ -69,7 +69,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         _num1 = 0;
         _num2 = 0;
         _operator = '';
-      } else {
+      } else if (!(buttonText[0] == '0' && _currentNumber[0] == '0')){
+        if (_currentNumber == '0') {
+          _currentNumber = '';
+        }
         _currentNumber += buttonText;
       }
 
