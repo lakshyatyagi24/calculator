@@ -63,11 +63,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           _operator = '';
           break;
         case '+' || '-' || 'x' || '/':
+          // Checks if _num1 exists
           if (_num1 != 0) {
+            // Calculates _num1 with input and puts that value in _num1
             _num2 = double.parse(_currentNumber);
             _num1 = performMath(_num1, _num2, _operator);
+            // Resets values allowing user to continue inputting numbers
             _num2 = 0;
-            _operator = '';
+            _operator = buttonText;
+            _currentNumber = '';
           } else {
             _num1 = double.parse(_currentNumber);
             _operator = buttonText;
@@ -80,11 +84,21 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           }
           break;
         case '=':
-          _num2 = double.parse(_currentNumber);
-          _currentNumber = performMath(_num1, _num2, _operator).toString();
-          _num1 = 0;
-          _num2 = 0;
-          _operator = '';
+          // Stops users from pressing equals without any input
+          if (_num1 == 0 || _operator == '') { break; }
+          // Stops users from pressing equals with entering a last number
+          if (_currentNumber == '') {
+            _currentNumber = _num1.toString();
+            _num1 = 0;
+            _operator = '';
+            _num2 = 0;
+          } else {
+            _num2 = double.parse(_currentNumber);
+            _currentNumber = performMath(_num1, _num2, _operator).toString();
+            _num1 = 0;
+            _num2 = 0;
+            _operator = '';
+          }
           break;
         default:
           if (!(buttonText[0] == '0' && _currentNumber[0] == '0')) {
