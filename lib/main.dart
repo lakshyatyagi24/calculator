@@ -62,10 +62,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           _num2 = 0;
           _operator = '';
           break;
-        case '+':
-        case '-':
-        case 'x':
-        case '/':
+        case '+' || '-' || 'x' || '/':
           if (_num1 != 0) {
             _num2 = double.parse(_currentNumber);
             _num1 = performMath(_num1, _num2, _operator);
