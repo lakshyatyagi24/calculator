@@ -33,47 +33,81 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   double _num2 = 0;
   String _operator = '';
 
+ double performMath(num1, num2, operator) {
+    double finalNum = 0;
+    switch (operator) {
+      case '+':
+        finalNum = (num1 + num2);
+        break;
+      case '-':
+        finalNum = (num1 - num2);
+        break;
+      case 'x':
+        finalNum = (num1 * num2);
+        break;
+      case '/':
+        finalNum = (num1 / num2);
+        break;
+    }
+    return finalNum;
+  }
+
   void _buttonPressed(String buttonText) {
     setState(() {
-      if (buttonText == 'C') {
-        _output = '0';
-        _currentNumber = '0';
-        _num1 = 0;
-        _num2 = 0;
-        _operator = '';
-      } else if (buttonText == '+' ||
-          buttonText == '-' ||
-          buttonText == 'x' ||
-          buttonText == '/') {
-        _num1 = double.parse(_currentNumber);
-        _operator = buttonText;
-        _currentNumber = '';
-      } else if (buttonText == '.') {
-        if (!_currentNumber.contains('.')) {
-          _currentNumber += buttonText;
-        }
-      } else if (buttonText == '=') {
-        _num2 = double.parse(_currentNumber);
-        if (_operator == '+') {
-          _currentNumber = (_num1 + _num2).toString();
-        }
-        if (_operator == '-') {
-          _currentNumber = (_num1 - _num2).toString();
-        }
-        if (_operator == 'x') {
-          _currentNumber = (_num1 * _num2).toString();
-        }
-        if (_operator == '/') {
-          _currentNumber = (_num1 / _num2).toString();
-        }
-        _num1 = 0;
-        _num2 = 0;
-        _operator = '';
-      } else if (!(buttonText[0] == '0' && _currentNumber[0] == '0')){
-        if (_currentNumber == '0') {
-          _currentNumber = '';
-        }
-        _currentNumber += buttonText;
+      switch (buttonText) {
+        case 'C':
+          _output = '0';
+          _currentNumber = '0';
+          _num1 = 0;
+          _num2 = 0;
+          _operator = '';
+          break;
+        case '+' || '-' || 'x' || '/':
+          // Checks if _num1 exists
+          if (_num1 != 0) {
+            // Calculates _num1 with input and puts that value in _num1
+            _num2 = double.parse(_currentNumber);
+            _num1 = performMath(_num1, _num2, _operator);
+            // Resets values allowing user to continue inputting numbers
+            _num2 = 0;
+            _operator = buttonText;
+            _currentNumber = '';
+          } else {
+            _num1 = double.parse(_currentNumber);
+            _operator = buttonText;
+            _currentNumber = '';
+          }
+          break;
+        case '.':
+          if (!_currentNumber.contains('.')) {
+            _currentNumber += buttonText;
+          }
+          break;
+        case '=':
+          // Stops users from pressing equals without any input
+          if (_num1 == 0 || _operator == '') { break; }
+          // Stops users from pressing equals with entering a last number
+          if (_currentNumber == '') {
+            _currentNumber = _num1.toString();
+            _num1 = 0;
+            _operator = '';
+            _num2 = 0;
+          } else {
+            _num2 = double.parse(_currentNumber);
+            _currentNumber = performMath(_num1, _num2, _operator).toString();
+            _num1 = 0;
+            _num2 = 0;
+            _operator = '';
+          }
+          break;
+        default:
+          if (!(buttonText[0] == '0' && _currentNumber[0] == '0')) {
+            if (_currentNumber == '0') {
+              _currentNumber = '';
+            }
+            _currentNumber += buttonText;
+          }
+          break;
       }
 
       _output = _currentNumber;
