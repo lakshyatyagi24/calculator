@@ -62,7 +62,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           _num2 = 0;
           _operator = '';
           break;
-        case '+' || '-' || 'x' || '/':
+        case '+':
+        case '-':
+        case 'x':
+        case '/':
           // Checks if _num1 exists
           if (_num1 != 0) {
             // Calculates _num1 with input and puts that value in _num1
